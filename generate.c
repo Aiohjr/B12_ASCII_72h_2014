@@ -132,14 +132,7 @@ void gen_abil(struct card *c, struct set *s, int n)
 		}
 		
 	}
-	/*switch (ability_effects[c->ab[n].ability_type])
-{
-case SPECIAL:break;
-case BENEFIT:
-	
-case HARM:
-	break;
-}*/
+
 	return;
 }
 
@@ -323,80 +316,3 @@ for (i=0;i<10;i++)
 
 
 
-/*int main()
-{
-	int i,j;
-	struct set mainset;
-	init_genrand(2880);	
-	gen_set(&mainset);*/
-/*	for (i=0;i<10;i++)
-	{
-		printf("%s hate %s and love %s\n",mainset.types[i].name_pl,mainset.types[mainset.types[i].enemy].name_pl,mainset.types[mainset.types[i].buddy].name_pl);
-		printf("They use %s and %s.\n",abilities[mainset.types[i].fave_ability1],abilities[mainset.types[i].fave_ability2]);
-	}
-	for (i=0;i<4;i++) 
-	{
-		printf("%s:\n",colors[i]);
-		printf("Common types:\n");
-		for (j=0;j<COMMON_TYPES_PER_COLOR;j++)
-		printf(" %s\n",mainset.types[mainset.setcolors[i].common[j]].name);
-		printf("Forbidden types:\n");
-		for (j=0;j<FORBIDDEN_TYPES_PER_COLOR;j++)
-		printf(" %s\n",mainset.types[mainset.setcolors[i].forbidden[j]].name);
-		printf("Hated color: %s\n\n",colors[mainset.setcolors[i].hated_color]);
-
-	}
-	for (i=0;i<CARDS_IN_SET;i++)
-	{
-		printf("%d: %s \n%s %s",i+1,mainset.cardlist[i].name,colors[mainset.cardlist[i].color],mainset.types[mainset.cardlist[i].type].name);
-		if (mainset.cardlist[i].dual) printf("/%s ",mainset.types[mainset.cardlist[i].type2].name); else printf(" ");
-		printf("ATT:%d, CRIT:%d, HP:%d\n",mainset.cardlist[i].att,mainset.cardlist[i].crit,mainset.cardlist[i].hp);
-		if (mainset.cardlist[i].n_abil==0) printf("No abilities"); else
-		for (j=0;j<mainset.cardlist[i].n_abil;j++)
-		{
-			printf("%s ",abilities[mainset.cardlist[i].ab[j].ability_type]);
-			if (ability_effects[mainset.cardlist[i].ab[j].ability_type]!=SPECIAL)
-			{
-				if (mainset.cardlist[i].ab[j].target_by==LOCAL)
-				{
-					if (ability_effects[mainset.cardlist[i].ab[j].ability_type]==HARM)
-					printf("opposing card. ");
-					else printf("self. ");
-				}
-				else 
-				{
-					if (mainset.cardlist[i].ab[j].multihit==1)
-					printf("all of ");
-					else printf("one of ");
-					
-				 	if (ability_effects[mainset.cardlist[i].ab[j].ability_type]==HARM)
-					printf("enemy ");
-					else printf("ally ");
-					
-					switch(mainset.cardlist[i].ab[j].target_by)
-					{
-					 case CARDTYPE:
-					 //printf("t %d ",mainset.cardlist[i].ab[j].target_detail);
-					  printf("%s ",mainset.types[mainset.cardlist[i].ab[j].target_detail].name_pl);
-					 break;
-					 case COLOR:
-					 printf("%s ",colors[mainset.cardlist[i].ab[j].target_detail]);
-					 //printf("c %d ",mainset.cardlist[i].ab[j].target_detail);
-					 break;
-					 case ANY:
-					  printf("cards ");
-					 break;
-					 default:
-					  printf("?!%d?!",mainset.cardlist[i].ab[j].target_by);
-					 break;
-					}
-				}
-			}
-		 printf("\n");
-		}
-		printf("\n\n");
-	}
-	printf("!");
-	*/
-//	return 0;
-//}
