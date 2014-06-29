@@ -11,7 +11,8 @@ void new_game()
  gen_game();
  gen_set(&mainset,time(NULL)); 
  print_spoiler(&mainset); 
- getch();
+ return;
+ 
 }
 
 void dummy_screen()
@@ -19,6 +20,7 @@ void dummy_screen()
  erase();
  printw("Nope!");
  getch();
+ return;
 }
 
 

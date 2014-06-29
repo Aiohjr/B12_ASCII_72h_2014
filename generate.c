@@ -238,14 +238,17 @@ void print_spoiler(struct set * s)
  sprintf(bignum,"%d",s->seed);  
  strcat(filename,bignum); 
  strcat(filename,".txt");
- printw("Generating %s",filename);
+ printw("Generating %s\n",filename);
  getch();
  f=fopen(filename,"w");
+ fprintf(f,"Set %d\n",s->seed);
+ fprintf(f,"CARD TYPES\n");
 for (i=0;i<10;i++)
 	{
 		fprintf(f,"%s hate %s and love %s\n",s->types[i].name_pl,s->types[s->types[i].enemy].name_pl,s->types[s->types[i].buddy].name_pl);
-		fprintf(f,"They use %s and %s.\n",abilities[s->types[i].fave_ability1],abilities[s->types[i].fave_ability2]);
+		fprintf(f,"They use %s and %s.\n\n",abilities[s->types[i].fave_ability1],abilities[s->types[i].fave_ability2]);
 	}
+	fprintf(f,"\nCOLORS\n\n");
 	for (i=0;i<4;i++) 
 	{
 		fprintf(f,"%s:\n",colors[i]);
@@ -258,6 +261,7 @@ for (i=0;i<10;i++)
 		fprintf(f,"Hated color: %s\n\n",colors[s->setcolors[i].hated_color]);
 
 	}
+	fprintf(f,"CARDS:\n");
 	for (i=0;i<CARDS_IN_SET;i++)
 	{
 		fprintf(f,"%d: %s \n%s %s",i+1,s->cardlist[i].name,colors[s->cardlist[i].color],s->types[s->cardlist[i].type].name);
@@ -309,8 +313,9 @@ for (i=0;i<10;i++)
 		fprintf(f,"\n\n");
 	}
  fclose(f);
- printw("Done.");
+ printw("Done.\n");
  getch();
+ erase();
  return;
 }
 
