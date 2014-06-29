@@ -1,6 +1,6 @@
 #ifndef STRINGS_H
 #define STRINGS_H
- //string colors[4] = {"Red","Blue","Green","Grey"};
+
  #define N_TYPES 47
  #define N_FNAMES 52
  #define N_LNAMES 52
